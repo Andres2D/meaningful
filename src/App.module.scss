@@ -1,7 +1,14 @@
+.logo {
+  font-weight: 900;
+  font-size: x-large;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10vh auto;
+  margin: 5vh auto;
 }
