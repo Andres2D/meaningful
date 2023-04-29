@@ -12,3 +12,12 @@
   align-items: center;
   margin: 5vh auto;
 }
+
+.footer {
+  text-align: center;
+
+  .repo {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
