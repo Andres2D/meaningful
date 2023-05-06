@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { getSuggestions, getWordDefinition } from '../helpers/search-api';
 import styles from './search.module.scss';
-import { Definition } from '../interfaces/dictionary';
 
 const Search = () => {
 
@@ -13,30 +13,13 @@ const Search = () => {
   const { data, refetch } = useQuery({
     queryKey: ['getSuggestions'],
     enabled: false,
-    queryFn: () => 
-      axios
-      .get(`https://dictionaryapi.com/api/v3/references/collegiate/json/${inputWord}?key=${import.meta.env.VITE_DICTIONARY_KEY}`)
-      .then((response: Definition[] | string[] | any) => {
-        const definitions = Array.isArray(response.data) ? response.data : [];
-        if(definitions.length === 0) { return [] }
-        if(typeof definitions[0] === 'string' || definitions[0] instanceof String) {
-          return definitions.splice(0, 4);
-        } else {
-          const word = definitions[0] as Definition;
-          return [word.meta.id.replace(':1', '')];
-        }
-      })
+    queryFn: () => getSuggestions(inputWord)
   });
 
   const { data: wordDefinition, refetch: singleFetch } = useQuery({
     queryKey: ['getMeaning'],
     enabled: false,
-    queryFn: () => 
-      axios
-      .get(`https://dictionaryapi.com/api/v3/references/collegiate/json/${selectedWord}?key=${import.meta.env.VITE_DICTIONARY_KEY}`)
-      .then((response: any) => {
-        return response.data[0];        
-      })
+    queryFn: () => getWordDefinition(selectedWord)
   });
 
   useEffect(() => {
@@ -44,6 +27,10 @@ const Search = () => {
       singleFetch();
     }
   }, [selectedWord, singleFetch]);
+
+  useEffect(() => {
+    console.log(wordDefinition);
+  }, [wordDefinition])
 
   const handleSearch = (event: any) => {
     setInputWord(event.target.value);

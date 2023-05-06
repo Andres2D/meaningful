@@ -4,6 +4,50 @@ export interface Word {
   meaning: string;
 }
 
+export interface ServerResponse {
+  data:       Definition[];
+  status:     number;
+  statusText: string;
+  headers:    DefinitionHeaders;
+  config:     Config;
+  request:    any;
+}
+
+
+export interface DefinitionHeaders {
+  "cache-control":  string;
+  "content-length": string;
+  "content-type":   string;
+  pragma:           string;
+}
+
+
+export interface Config {
+  transitional:      Transitional;
+  adapter:           string[];
+  transformRequest:  null[];
+  transformResponse: null[];
+  timeout:           number;
+  xsrfCookieName:    string;
+  xsrfHeaderName:    string;
+  maxContentLength:  number;
+  maxBodyLength:     number;
+  env:               any;
+  headers:           ConfigHeaders;
+  method:            string;
+  url:               string;
+}
+
+export interface ConfigHeaders {
+  Accept: string;
+}
+
+export interface Transitional {
+  silentJSONParsing:   boolean;
+  forcedJSONParsing:   boolean;
+  clarifyTimeoutError: boolean;
+}
+
 export interface Definition {
   meta:     Meta;
   hom:      number;
