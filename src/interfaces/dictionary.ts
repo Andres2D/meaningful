@@ -1,6 +1,7 @@
 export interface Word {
   word: string;
   phonetic: string;
+  type: string;
   meaning: string;
 }
 

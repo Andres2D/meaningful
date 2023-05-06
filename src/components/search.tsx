@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getSuggestions, getWordDefinition } from '../helpers/search-api';
+import { useDispatch } from 'react-redux';
+import { meaningSliceActions } from '../store/meaning-slice';
 import styles from './search.module.scss';
 
 const Search = () => {
@@ -9,6 +10,7 @@ const Search = () => {
   const [searching, setSearching] = useState(false);
   const [inputWord, setInputWord] = useState('');
   const [selectedWord, setSelectedWord] = useState('');
+  const dispatch = useDispatch();
 
   const { data, refetch } = useQuery({
     queryKey: ['getSuggestions'],
@@ -23,19 +25,26 @@ const Search = () => {
   });
 
   useEffect(() => {
+    if(inputWord.trim() !== '') {
+      refetch();
+    }
+  }, [inputWord, refetch]);
+
+  useEffect(() => {
     if(selectedWord !== '') {
       singleFetch();
     }
   }, [selectedWord, singleFetch]);
 
   useEffect(() => {
-    console.log(wordDefinition);
-  }, [wordDefinition])
+    if(wordDefinition) {
+      dispatch(meaningSliceActions.setMeaning(wordDefinition)); 
+    }
+  }, [wordDefinition, dispatch])
 
   const handleSearch = (event: any) => {
     setInputWord(event.target.value);
     setSearching(true);
-    refetch();
   };
   
   const handleSearchWord = (wordSelected: string) => {
