@@ -14,6 +14,7 @@ const Layout = () => {
           <Card />
           <div>
             <Option action='download' />
+            <Option action='background' />
           </div>
         </div>
       </section>

@@ -7,7 +7,7 @@ const Card = () => {
 
   return (
     <section className={styles.card} id="wallpaper">
-      <h1 className={styles.word}>{word}</h1>
+      <h1 className={styles.word} id="word">{word}</h1>
       <p className={styles.phonetic}>{phonetic} {type}</p>
       <p className={styles.meaning}>
         {meaning}

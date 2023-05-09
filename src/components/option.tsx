@@ -1,10 +1,6 @@
-import downloadjs from 'downloadjs';
-import html2canvas from 'html2canvas';
 import styles from './option.module.scss';
 import { ButtonAction } from '../types/actions';
 import { actionMap } from '../constants/actions';
-import { useSelector } from 'react-redux';
-import { RootState } from '../interfaces/store';
 
 type Props = {
   action: ButtonAction
@@ -12,15 +8,10 @@ type Props = {
 
 const Option = ({action}: Props) => {
 
-  const {src, alt} = actionMap[action];
-  const { word } = useSelector((state: RootState) => state.meaning);
+  const {src, alt, class: classAction } = actionMap[action];
 
   const handleClick = async () => {
-    const wallpaper = document.getElementById('wallpaper');
-    if(!wallpaper) return;
-    const canvas = await html2canvas(wallpaper);
-    const dataURL = canvas.toDataURL('image/png');
-    downloadjs(dataURL, `${word}-wallpaper.png`, 'image/png');
+    classAction.execute();
   };
 
   return (
