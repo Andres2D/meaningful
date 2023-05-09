@@ -1,0 +1,12 @@
+.option {
+  border: 2px solid #e7e8e7;
+  display: flex;
+  background-color: transparent;
+  border-radius: 8px;
+  margin: 0 10px 10px 10px;
+  cursor: pointer;
+
+  .icon {
+    width: 40px;
+  }
+}

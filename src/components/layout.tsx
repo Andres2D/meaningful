@@ -1,6 +1,8 @@
+import { actionMap } from '../constants/actions';
 import Card from './card';
 import Footer from './footer';
 import styles from './layout.module.scss';
+import Option from './option';
 import Search from './search';
 
 const Layout = () => {
@@ -9,13 +11,16 @@ const Layout = () => {
       <h1 className={styles.logo}>meaningful.app</h1>
       <section className={styles.section}>
         <Search />
-        <Card 
-          word="wallpaper"
-          phonetic="/ˈwɔːlˌpeɪ.pər/ noun"
-          meaning="paper that is pasted in vertical
-          strips over the walls of a room to
-          provide a decorative surface."
-        />
+        <div className={styles.card}>
+          <Card />
+          <div>
+            {
+              Object.keys(actionMap).map((action) => (
+                <Option key={action} action={action} />
+              ))
+            }
+          </div>
+        </div>
       </section>
       <Footer />
     </>
