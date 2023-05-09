@@ -1,3 +1,4 @@
+import { actionMap } from '../constants/actions';
 import Card from './card';
 import Footer from './footer';
 import styles from './layout.module.scss';
@@ -13,8 +14,11 @@ const Layout = () => {
         <div className={styles.card}>
           <Card />
           <div>
-            <Option action='download' />
-            <Option action='background' />
+            {
+              Object.keys(actionMap).map((action) => (
+                <Option key={action} action={action} />
+              ))
+            }
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@ import { ButtonAction } from '../types/actions';
 import { actionMap } from '../constants/actions';
 
 type Props = {
-  action: ButtonAction
+  action: ButtonAction | string
 };
 
 const Option = ({action}: Props) => {

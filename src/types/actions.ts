@@ -1,1 +1,1 @@
-export type ButtonAction = 'download' | 'background';
+export type ButtonAction = 'download' | 'background' | 'labels';
