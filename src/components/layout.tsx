@@ -9,13 +9,7 @@ const Layout = () => {
       <h1 className={styles.logo}>meaningful.app</h1>
       <section className={styles.section}>
         <Search />
-        <Card 
-          word="wallpaper"
-          phonetic="/ˈwɔːlˌpeɪ.pər/ noun"
-          meaning="paper that is pasted in vertical
-          strips over the walls of a room to
-          provide a decorative surface."
-        />
+        <Card />
       </section>
       <Footer />
     </>

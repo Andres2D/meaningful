@@ -3,9 +3,7 @@ import styles from './card.module.scss';
 import { RootState } from '../interfaces/store';
 
 const Card = () => {
-
   const { meaning, phonetic, type, word } = useSelector((state: RootState) => state.meaning);
-
   return (
     <section className={styles.card}>
       <h1 className={styles.word}>{word}</h1>
