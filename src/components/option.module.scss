@@ -10,3 +10,9 @@
     width: 40px;
   }
 }
+
+@media (max-width: 450px) {
+  .option {
+    margin: 0 5px 10px 5px;
+  }
+}
