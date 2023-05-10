@@ -5,13 +5,20 @@ export interface Word {
   meaning: string;
 }
 
-export interface ServerResponse {
-  data:       Definition[];
+export interface BaseServerResponse {
   status:     number;
   statusText: string;
   headers:    DefinitionHeaders;
   config:     Config;
   request:    any;
+}
+
+export interface DefinitionResponse extends BaseServerResponse {
+  data:       Definition[];
+}
+
+export interface WordleResponse extends BaseServerResponse {
+  data:       { today: string };
 }
 
 

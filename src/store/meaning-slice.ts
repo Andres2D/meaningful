@@ -11,7 +11,8 @@ const initialState: Word = {
 const setMeaning: CaseReducer<Word, PayloadAction<Definition>> =
   (state: Word, action: PayloadAction<Definition>) => {
     const { meta, hwi, fl, shortdef } = action.payload;
-    state.word = meta.id.replace(':1', '');
+    const removeIndex = meta.id.indexOf(':');
+    state.word = removeIndex === -1 ? meta.id : meta.id.slice(0, removeIndex);
     state.phonetic = hwi.prs?.filter((prs) => prs.mw)[0].mw || '',
     state.meaning = shortdef.join('\n');
     state.type = fl;
