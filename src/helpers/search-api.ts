@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Definition, ServerResponse, DefinitionResponse, WordleResponse } from '../interfaces/dictionary';
+import { Definition, DefinitionResponse, WordleResponse } from '../interfaces/dictionary';
 
 const getFetchUrl = (word: string) => 
   `https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${import.meta.env.VITE_DICTIONARY_KEY}`
