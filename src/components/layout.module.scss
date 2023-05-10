@@ -28,3 +28,9 @@
     }
   }
 }
+
+@media (max-width: 365px) {
+  .section {
+    align-items: unset;
+  }
+}
