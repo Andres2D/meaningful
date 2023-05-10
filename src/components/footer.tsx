@@ -9,7 +9,8 @@ const Footer = () => {
         target='_blank' 
         className={styles.repo}>
           Andres2D
-      </a> 
+      </a>
+      <p>v1.1.0</p>
     </footer>
   )
 };
