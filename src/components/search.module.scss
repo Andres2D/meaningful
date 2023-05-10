@@ -53,3 +53,12 @@
     }
   }
 }
+
+@media (max-width: 450px) {
+  .search {
+    .input,
+    .results {
+      margin-right: 0;
+    }
+  }
+}

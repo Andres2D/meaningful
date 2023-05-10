@@ -13,7 +13,7 @@ const Layout = () => {
         <Search />
         <div className={styles.card}>
           <Card />
-          <div>
+          <div className={styles.actions}>
             {
               Object.keys(actionMap).map((action) => (
                 <Option key={action} action={action} />
