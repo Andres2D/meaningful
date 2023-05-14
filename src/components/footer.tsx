@@ -10,7 +10,7 @@ const Footer = () => {
         className={styles.repo}>
           Andres2D
       </a>
-      <p>v1.1.1</p>
+      <p>v1.1.2</p>
     </footer>
   )
 };

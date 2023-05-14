@@ -23,6 +23,7 @@ export class Download extends BaseAction {
     element.style.height = '100vh';
     element.style.borderRadius = '0';
     element.style.width = '100%';
+    element.style.paddingTop = '100px';
     return element;
   }
   
@@ -30,6 +31,7 @@ export class Download extends BaseAction {
     element.style.height = '550px';
     element.style.borderRadius = '10px';
     element.style.width = window.innerWidth < 365 ? '100%' : '350px';
+    element.style.paddingTop = '20px';
     return element;
   }
 }
