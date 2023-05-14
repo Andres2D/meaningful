@@ -28,6 +28,7 @@ export const actionMap: ActionsMap = {
 };
 
 export const backgroundColors: string[] = [
+  '#000000',
   '#2D3737', 
   '#323232', 
   '#3C3232', 
