@@ -1,5 +1,5 @@
 import { Download } from '../actions';
-import { download, background, labels, wordle } from '../assets/icons';
+import { download, background, labels } from '../assets/icons';
 import { ActionsMap } from '../interfaces/actions';
 import { Background } from '../actions/background';
 import { Labels } from '../actions/labels';
