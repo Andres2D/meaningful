@@ -20,11 +20,11 @@ export const actionMap: ActionsMap = {
     alt: 'download',
     class: new Download()
   },
-  wordle: {
-    src: wordle,
-    alt: 'wordle',
-    class: null
-  }
+  // wordle: {
+  //   src: wordle,
+  //   alt: 'wordle',
+  //   class: null
+  // }
 };
 
 export const backgroundColors: string[] = [
